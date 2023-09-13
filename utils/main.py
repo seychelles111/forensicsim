@@ -144,7 +144,7 @@ def parse_reply_chain(reply_chains):
         # The way of accessing a the nested messages is different depending on the teams version -> check for both
         message_keys = ['messageMap', 'messages']
         for message_key in message_keys:
-            if message_key in value:
+            if value is not None and message_key in value:
                 message = value[message_key]
                 for key, value in message.items():
                     # parse as a normal chat message
